@@ -192,11 +192,11 @@ public synchronized void withdraw(int amount) {   // метод: замок на
 ### Шаблон
 
 ```java
-public synchronized void ждатьИДействовать() throws InterruptedException {
-    while (!можноДействовать()) {   // while!
+public synchronized void waitAndAct() throws InterruptedException { //ждатьИДействовать
+    while (!canAct()) {   // while! можноДействовать
         wait();                     // отпустить замок и ждать
     }
-    действовать();                  // изменить общие данные
+    act();                  // действовать изменить общие данные
     notifyAll();                    // разбудить всех, кто ждёт изменений
 }
 ```
